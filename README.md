@@ -7,7 +7,7 @@
 
 This project was developed during the Data Mining course at the [Department of Computer Science](https://chennai.vit.ac.in/) at [Vellore Institute of Technology](https://chennai.vit.ac.in/) under the supervision of Dr. Kavitha Dhanushkodi
 
-![Architectural Diagram of the Proposed Process](Img/img10.png)
+![Architectural Diagram of the Proposed Process](Img/img10.jpg)
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -24,7 +24,7 @@ The project consists of data analysis using data mining tools to understand and 
 
 ## Tasks
 
-![Sequential Diagram of the Proposed Process](Img/img11.png)
+![Sequential Diagram of the Proposed Process](Img/img11.jpg)
 
 ### Task 1: Data Understanding and Preparation
 - **Data Understanding**: Explore the dataset, assess data quality, distribution of variables, and pairwise correlations.
@@ -39,7 +39,7 @@ Predict whether a customer is a high-spending, medium-spending, or low-spending 
 ### Task 4: Sequential Pattern Mining
 Mine frequent sequential patterns to model customer purchasing behavior over time.
 
-![Flowchart Diagram of the Proposed Architecture](Img/img12.png)
+![Flowchart Diagram of the Proposed Architecture](Img/img12.jpg)
 
 ## Dataset
 The dataset includes customer purchasing data. Detailed information about the dataset can be found in the `dataset` folder.
