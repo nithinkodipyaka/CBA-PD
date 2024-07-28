@@ -1,0 +1,58 @@
+\section{Sequential Pattern Mining}
+The goal of this section is to describe the results obtained from the application of a \emph{SPM (Sequential Pattern Mining)} algorithm in order to discover some frequent patterns in the products purchased by customers.
+
+So, in order to achieve this goal, we need to model each customer as a sequence of baskets, sorted by \emph{BasketDate}.
+
+\subsection{Generalized Sequential Pattern Mining}
+We now apply the \emph{GSP (Generalized Sequential Pattern)} algorithm, an apriori-based Sequential Pattern Mining algorithm to discover the frequent patterns present in our dataset.\\
+\emph{GSP} is a breadth-first algorithm that starts by finding all the 1-sequence that are frequent, i.e. the first level candidate sequences, that are those patterns with support greater than the \emph{min\_sup}. We set \emph{min\_sup} equal to 5\%, which is quite low.\\
+Then, at each step, \emph{i.e.} for each successive layer, it generates new longer candidates by merging pairs of the previous ones, and later it eliminates all the sequences with low support. It stops when no more frequent sequences are found.
+
+We found 41 frequent patterns, all of them made up of just two products in the same sequence or in two different ones, except for one with three products in the same sequence.\\
+By taking a first look at those sequences, we can notice that some of them are related to the same product, so we can imagine that these patterns are supported by regular customers or customers who are comfortable with that product. Some examples are:
+
+\begin{itemize}
+\item \{\emph{WHITE HANGING HEART TLIGHT HOLDER}\}, \{\emph{WHITE HANGING HEART TLIGHT HOLDER}\}
+\item \{\emph{JUMBO BAG RED RETROSPOT}\}, \{\emph{JUMBO BAG RED RETROSPOT}\}
+\item \{\emph{REGENCY CAKESTAND TIER}\}, \{\emph{REGENCY CAKESTAND TIER}\}
+\item \{\emph{ASSORTED COLOUR BIRD ORNAMENT}\}, \{\emph{ASSORTED COLOUR BIRD ORNAMENT}\}
+\item \{\emph{PARTY BUNTING}\}, \{\emph{PARTY BUNTING}\}
+\item \{\emph{LUNCH BAG RED RETROSPOT}\}, \{\emph{LUNCH BAG RED RETROSPOT}\}
+\item \{\emph{LUNCH BAG BLACK SKULL}\}, \{\emph{LUNCH BAG BLACK SKULL}\}
+\item \{\emph{LUNCH BAG SUKI DESIGN}\}, \{\emph{LUNCH BAG SUKI DESIGN}\}
+\item \{\emph{SET OF CAKE TINS PANTRY DESIGN}\}, \{\emph{SET OF CAKE TINS PANTRY DESIGN}\}
+\end{itemize}
+
+On the other hand, for the remaining sequences, we can notice that those are related to the same product with different characteristics in terms of shape, color, size, etc., so we can imagine that these patterns are supported by wholesale customers that purchase a stock of same products with different characteristics. Some of them are:
+
+\begin{itemize}
+\item \{\emph{GREEN REGENCY TEACUP AND SAUCER}, \emph{PINK REGENCY TEACUP AND SAUCER}, \emph{ROSES REGENCY TEACUP AND SAUCER}\}
+\item \{\emph{GARDENERS KNEELING PAD CUP OF TEA}, \emph{GARDENERS KNEELING PAD KEEP CALM}\}
+\item \{\emph{HEART OF WICKER LARGE}, \emph{HEART OF WICKER SMALL}\}
+\item \{\emph{WOODEN HEART CHRISTMAS SCANDINAVIAN}, \emph{WOODEN STAR CHRISTMAS SCANDINAVIAN}\}
+\end{itemize}
+
+In conclusion, we can assert that there are not very interesting frequent patterns, \emph{i.e.} patterns that involve different kinds of products, and so we can say that the customers' behavior is quite different from each other. This is probably due to the presence of wholesale and retail customers purchasing in the same dataset.
+
+\subsubsection{Time Constraints}
+To make the SPM phase more interesting we decided to involve some time constraints in the GSP algorithm known as:
+
+\begin{itemize}
+\item \emph{max\_span}: the maximum duration of the whole sequence;
+\item \emph{min\_gap}: the minimum time between two elements of the sequence;
+\item \emph{max\_gap}: the maximum time between two elements of the sequence.
+\end{itemize}
+
+The algorithm works as specified before, with the addiction that it prunes also all the candidates that violate these time constraints.
+
+In order to perform the mining phase with these constraints by taking into account the time elapsed between two purchases, we need to expand our dataset definition by associating a timestamp to each basket. So we decided to use as timestamp the day of the year, since the dataset covers a period of about a year and the vast majority of the customers purchased at most one basket per day; hence, we defined \emph{BasketDayOfYear}, a numerical attribute that goes from 2 to 344.
+
+For our analysis, we choose \emph{min\_sup} equal to 5\% and we decide to constraint the frequent patterns as follow: 
+
+\begin{itemize}
+\item the overall duration of the pattern instance must be at most of 1 month, so we set \emph{max\_span} equals to 30 days;
+\item \emph{min\_gap}: each element of the pattern instance must be at least 1 day after the previous one, so we set \emph{min\_gap} equals to 1 day;
+\item \emph{max\_gap}: each element of the pattern instance must be at most 1 week after the previous one, so we set \emph{max\_gap} equals to 7 days.
+\end{itemize}
+
+As a result, we obtain that all the frequent patterns attributable to retail customers, i.e. those made up by two products in two different sequences, disappear, while all the frequent patterns attributable to wholesale customers remain unchanged. This helps us to support our thesis considering that often the wholesale customers buy products in stock, therefore all purchases are made at the same time.

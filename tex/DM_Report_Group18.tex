@@ -1,0 +1,82 @@
+\documentclass[10pt]{article}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\setmarginsrb{2cm}  % left margin
+             {2cm}  % top margin
+             {2cm}  % right margin
+             {2cm}  % bottom margin
+             {1.5cm}  % head height
+             {1cm}  % head sep
+             {1.5cm}  % foot height
+             {1cm}  % foot sep
+\usepackage{hyperref}
+\usepackage{comment}
+\usepackage{caption}
+
+\title{Supermarket Analysis}
+\author{Donato Meoli \\ Enrico D'Arco \\ Luigi Quarantiello}
+\date{January, 2021}
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Data Mining}
+\lhead{\thetitle}
+\cfoot{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.5]{img/unipi.png}\\[1.0 cm]
+    \textsc{\LARGE University of Pisa}\\[0.5 cm]
+    \textsc{\Large Department of Computer Science}\\[1.5 cm]
+	\textsc{\large Data Mining \\ Group 18}\\[0.5 cm]
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	\centering \textsc{\large \emph{Authors:}}\\[0.5 cm]
+	\begin{minipage}{0.4\textwidth}
+		\begin{center} \large
+			\textbf{\theauthor}
+		\end{center}
+		\end{minipage}~
+		\begin{minipage}{0.4\textwidth}
+	\end{minipage}\\[2 cm]
+	{\large \thedate}\\[2 cm]
+	\vfill
+\end{titlepage}
+
+\tableofcontents
+\pagebreak
+
+\input{task_1-1}
+\pagebreak
+\input{task_1-2}
+\pagebreak
+\input{task_2}
+\clearpage
+\input{task_3}
+\pagebreak
+\input{task_4}
+
+\bibliographystyle{plain}
+\bibliography{biblist}
+
+\end{document}
