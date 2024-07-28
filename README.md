@@ -49,3 +49,6 @@ This project has been published in the IEEE. You can find the full publication h
 - **Customer Behaviour Analysis and Predictive Modelling in Supermarket Retail: A Comprehensive Data Mining Approach**
 - [IEEE Xplore Digital Library](https://ieeexplore.ieee.org/document/10542125)
 
+## License
+This project is licensed under the terms of the LICENSE file.
+
