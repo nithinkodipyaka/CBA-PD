@@ -1,4 +1,4 @@
-# Customer Behaviour Analysis and Predictive Modelling in Supermarket Retail: A Comprehensive Data Mining Approach (CBA-PD)
+# Customer Behaviour Analysis and Predictive Modelling in Supermarket Retail: A Comprehensive Data Mining Approach (CBA-PM)
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange)
